@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="rankarray">
+        <item>
+            <subitem>1</subitem>
+         <subitem>USER AB - 러시안 룰렛</subitem>
+        </item>
+
+        <item>
+            <subitem>2</subitem>
+        <subitem>USER GGG - 러시안 룰렛</subitem>
+        </item>
+
+        <item>
+            <subitem>3</subitem>
+         <subitem>USER HGHG - 러시안 룰렛</subitem>
+        </item>
+        <item>
+            <subitem>4</subitem>
+         <subitem>USER HGHG - 러시안 룰렛</subitem>
+        </item>
+        <item>
+            <subitem>5</subitem>
+         <subitem>USER HGHG - 러시안 룰렛</subitem>
+        </item>
+        <item>
+            <subitem>6</subitem>
+         <subitem>USER HGHG - 러시안 룰렛</subitem>
+        </item>
+        <item>
+            <subitem>7</subitem>
+         <subitem>USER HGHG - 러시안 룰렛</subitem>
+        </item>
+    </string-array>
+</resources>
