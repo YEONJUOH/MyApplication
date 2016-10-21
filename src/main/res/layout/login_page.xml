@@ -7,7 +7,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
 
-    android:background="#66a3ff"
+    android:background="@color/colorBackground"
     >
 
 
@@ -77,7 +77,7 @@
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
             android:textColor="#ffffff"
-            android:background="#0000b3"/>
+            android:background="@color/colorPoint"/>
 
     </LinearLayout>
 
