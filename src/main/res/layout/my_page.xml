@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"  android:weightSum="15"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <TextView
+        android:text="My page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:textColor="@android:color/background_light"
+        android:id="@+id/textView11" android:layout_gravity="center"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent" android:layout_weight="10"
+        android:layout_height="match_parent"
+        android:background="@android:color/darker_gray">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/album2"
+            android:id="@+id/imageView2"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:text="User Id : dg6676 \n score : 8.2 tot"
+                android:layout_width="match_parent" android:padding="@dimen/activity_vertical_margin"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView9" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent" android:layout_weight="9"
+        android:layout_height="match_parent"
+        android:background="@android:color/background_light">
+
+        <Button
+            android:text="내정보수정" android:drawableTop="@mipmap/ic_launcher"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/button4"
+            android:layout_weight="1" />
+
+        <Button
+            android:text="내노래관리" android:drawableTop="@mipmap/ic_launcher"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/button3"
+            android:layout_weight="1" />
+    </LinearLayout>
+</LinearLayout>
