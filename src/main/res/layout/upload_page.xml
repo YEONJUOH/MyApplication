@@ -1,6 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="도전 하기"
+            android:id="@+id/textView9"
+            android:background="@color/colorGray"
+            android:textSize="27dp"
+            android:textColor="#ffffff"
+            />
+
+       <LinearLayout
+           android:orientation="horizontal"
+           android:layout_width="match_parent"
+           android:layout_height="70dp"
+           android:background="#ffffff"
+           android:layout_marginTop="5dp"
+           android:paddingTop="3dp"
+           android:weightSum="1">
+
+           <ImageView
+               android:layout_width="50dp"
+               android:layout_height="50dp"
+               android:src="@drawable/microphone"
+               android:layout_marginTop="3dp"
+               />
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textAppearance="?android:attr/textAppearanceMedium"
+               android:text="도전 과제 등록 \n (10MB 이하)"
+               android:id="@+id/textView10"
+               android:layout_weight="0.93" />
+           <Button
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="업로드"
+               android:id="@+id/upload_btn"
+               android:layout_marginTop="5dp"
+               />
+
+
+       </LinearLayout>
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/upload_comment"
+            android:layout_gravity="center_horizontal"
+            android:background="#ffffff"
+            android:layout_weight="0.87"
+            android:layout_marginTop="5dp"
+            android:hint="내용을 입력하세요"
+            />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="#ffffff"
+            android:layout_marginTop="5dp"
+
+            android:gravity="center"
+
+           >
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="취소"
+                android:id="@+id/upload_cancle"
+
+
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="확인"
+                android:id="@+id/upload_check"
+
+                />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+
+
 
 </LinearLayout>
+
