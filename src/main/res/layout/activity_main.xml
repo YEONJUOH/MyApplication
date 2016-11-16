@@ -99,9 +99,5 @@
                 android:background="@color/dim_foreground_disabled_material_dark" />
 
         </LinearLayout>
-
     </LinearLayout>
-
-
-
 </RelativeLayout>
