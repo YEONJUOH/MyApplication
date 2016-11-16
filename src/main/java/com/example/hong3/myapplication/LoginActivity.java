@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity{
             public void onClick(View v) {
                 params.put("m_id",user_id);
                 params.put("password",user_password);
-                url_text="/member/login?"+user_id+"&"+user_password;
+                url_text="/member/login";//?"+user_id+"&"+user_password;
                 MyClient.post(url_text,params,new JsonHttpResponseHandler(){
                     @Override
                     public void onSuccess(int statusCode, Header[] headers,JSONObject object) {
