@@ -3,9 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:title="MY"
-        app:showAsAction="ifRoom"
-        ></item>
-     <item android:title="back" android:layout_gravity="left"
-         app:showAsAction="ifRoom"></item>
+        android:title="MY" android:id="@+id/mypage_menu"
+        app:showAsAction="ifRoom"></item>
+
 </menu>
