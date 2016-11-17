@@ -39,12 +39,11 @@ public class UploadActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.upload_page);
-
+       // mk_audioList();
 
 
     /*    cursor = managedQuery(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI ,
                 projection, selection, null, null);*/
-
 
 
         Button upload_btn = (Button) findViewById(R.id.upload_btn);
