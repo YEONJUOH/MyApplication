@@ -7,6 +7,7 @@ import com.loopj.android.http.RequestParams;
  * Created by jeongyeon on 2016-11-10.
  */
 
+
 public class MyClient {
     private static final String BASE_URL = "http://192.168.1.101:1039";//"http://202.30.23.51:1039";
    private static AsyncHttpClient client=new AsyncHttpClient();
