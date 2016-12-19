@@ -30,10 +30,12 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
-         <EditText
+
+
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText3"
+            android:id="@+id/inputId"
             android:padding="10dp"
             android:background="#ffffff"/>
 
@@ -53,7 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:id="@+id/editText4"
+            android:id="@+id/inputPwd"
             android:padding="10dp"
             android:background="#ffffff"/>
 
@@ -73,7 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:id="@+id/editText5"
+            android:id="@+id/pwdCheck"
             android:padding="10dp"
             android:background="#ffffff"/>
 
@@ -92,7 +94,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText6"
+            android:id="@+id/inputName"
             android:padding="10dp"
             android:layout_marginBottom="15dp"
             android:background="#ffffff"/>
@@ -101,8 +103,8 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sign Up"
-            android:id="@+id/button2"
+            android:text="Next"
+            android:id="@+id/btnToimg"
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
             android:textColor="#ffffff"

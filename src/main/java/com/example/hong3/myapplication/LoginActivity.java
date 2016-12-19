@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -30,22 +31,25 @@ import cz.msebera.android.httpclient.Header;
  */
 
 
-
-
 public class LoginActivity extends AppCompatActivity{
     Button b;
     EditText user_name;
     EditText user_pw;
     String url_text;
+    TextView joinLink;
+
     RequestParams params=new RequestParams();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.login_page);
          b=(Button)findViewById(R.id.login_button);
           user_name=(EditText)findViewById(R.id.userNameText);
           user_pw=(EditText)findViewById(R.id.userPwText);
+          joinLink = (TextView)findViewById(R.id.joinLink);
 
+        /*로그인 버튼 클릭 시*/
         b.setOnClickListener(new View.OnClickListener() {
             String user_id="";
             String user_password="";
@@ -69,11 +73,13 @@ public class LoginActivity extends AppCompatActivity{
                         if(result.equals("success")) {
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
+                        }else{
+                            Toast.makeText(LoginActivity.this,"fail",Toast.LENGTH_SHORT).show();
                         }
                     }
                     @Override
                     public void onFailure(int statusCode, Header[] headers, Throwable throwable,JSONObject object) {
-                        Toast.makeText(LoginActivity.this,"fail2",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this,"fail",Toast.LENGTH_SHORT).show();
                        // Toast.makeText(LoginActivity.this, responseString, Toast.LENGTH_LONG).show();
                         //super.onFailure(statusCode, headers, throwable, errorResponse);
                     }
@@ -83,6 +89,16 @@ public class LoginActivity extends AppCompatActivity{
             }
         });
 
+
+        //회원 가입 textview 클릭 시
+       joinLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Intent intent = new Intent(LoginActivity.this, JoinActivity.class);
+               startActivity(intent);
+
+            }
+        });
 
 
 

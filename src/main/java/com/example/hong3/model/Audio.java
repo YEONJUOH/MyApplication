@@ -13,6 +13,8 @@ public class Audio {
       String a_loc;
       int s_id;
       String a_comment;
+      String path;
+
 
 
       String a_date;//audio 만들어 진 날짜
@@ -74,4 +76,13 @@ public class Audio {
         this.a_duration = a_duration;
 
     }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
 }

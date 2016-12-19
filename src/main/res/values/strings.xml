@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">King Sing</string>
+    <string name="joinLink"><u>회원 가입</u></string>
+    <string name="pic_sel"><u>사진 선택</u></string>
 </resources>
