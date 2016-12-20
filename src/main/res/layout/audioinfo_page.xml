@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ffffff"
+        android:id="@+id/audioInfoBody"
         >
 
 
@@ -71,7 +72,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="레드벨벳 - 러시안 룰렛"
-                android:id="@+id/textView14"
+                android:id="@+id/songNm"
                 android:textColor="#ffffff"
                 android:paddingTop="8dp"
                 android:paddingLeft="5dp"
@@ -155,6 +156,7 @@
         android:layout_height="wrap_content"
         android:background="#ffffff"
         android:layout_marginTop="10dp"
+        android:id="@+id/replyLinear"
         >
         <LinearLayout
             android:orientation="horizontal"

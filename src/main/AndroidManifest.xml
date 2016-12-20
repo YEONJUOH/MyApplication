@@ -8,11 +8,15 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".mysonglistActivity"/>
+        <activity android:name=".MyinfoViewAcitivty"/>
         <activity android:name=".imgUpload"/>
-
+        <activity android:name=".MyInfoActivity"/>
         <activity android:name=".UploadActivity"/>
-        <activity android:name=".AudioInfoActivity">
+        <activity android:name=".AudioInfoActivity"/>
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".JoinActivity"/>
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

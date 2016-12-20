@@ -1,5 +1,6 @@
 package com.example.hong3.myapplication;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -31,7 +32,7 @@ import cz.msebera.android.httpclient.Header;
  */
 
 
-public class LoginActivity extends AppCompatActivity{
+public class LoginActivity extends Activity {
     Button b;
     EditText user_name;
     EditText user_pw;
@@ -72,6 +73,7 @@ public class LoginActivity extends AppCompatActivity{
                         Toast.makeText(LoginActivity.this,result,Toast.LENGTH_SHORT).show();
                         if(result.equals("success")) {
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            intent.putExtra("m_id",user_id);
                             startActivity(intent);
                         }else{
                             Toast.makeText(LoginActivity.this,"fail",Toast.LENGTH_SHORT).show();

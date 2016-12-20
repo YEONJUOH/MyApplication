@@ -1,5 +1,6 @@
 package com.example.hong3.myapplication;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,7 +14,7 @@ import android.widget.Toast;
  * Created by jeongyeon on 2016-11-14.
  */
 
-public class JoinActivity extends AppCompatActivity{
+public class JoinActivity extends Activity {
 
     Button btnToimg ;
     EditText inputId;

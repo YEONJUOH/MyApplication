@@ -34,7 +34,7 @@ import cz.msebera.android.httpclient.Header;
 /**
  * Created by OHBABY on 2016-11-25.
  */
-public class imgUpload extends AppCompatActivity {
+public class imgUpload extends Activity {
 
     TextView pic_sel;
     Button pic_up_btn;
@@ -95,7 +95,7 @@ public class imgUpload extends AppCompatActivity {
 
                     public void onSuccess(int statusCode, Header[] headers, JSONObject object) {
 
-                        Intent intent = new Intent(imgUpload.this, MainActivity.class);
+                        Intent intent = new Intent(imgUpload.this, LoginActivity.class);
                         startActivity(intent);
 
                     }
@@ -128,7 +128,6 @@ public class imgUpload extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 
-        Toast.makeText(getBaseContext(), "resultCode : " + resultCode, Toast.LENGTH_SHORT).show();
 
         if (requestCode == REQ_CODE_SELECT_IMAGE) {
             if (resultCode == Activity.RESULT_OK) {

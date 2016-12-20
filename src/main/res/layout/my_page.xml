@@ -23,20 +23,38 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:srcCompat="@drawable/album2"
-            android:id="@+id/imageView2"
+            android:id="@+id/myPageImg"
             android:layout_weight="1" />
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1">
 
             <TextView
-                android:text="User Id : dg6676 \n score : 8.2 tot"
-                android:layout_width="match_parent" android:padding="@dimen/activity_vertical_margin"
+                android:text="User Id : dg6676"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView9" />
+                android:id="@+id/my_id"
+                android:paddingTop="20dp"/>
+            <TextView
+                android:text="Name : "
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/my_name" />
+            <TextView
+                android:text="song : "
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:id="@+id/my_song_count" />
+            <TextView
+                android:text="score : 8.2 tot"
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:id="@+id/my_score" />
         </LinearLayout>
     </LinearLayout>
 
@@ -50,14 +68,14 @@
             android:text="내정보수정" android:drawableTop="@mipmap/ic_launcher"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/button4"
+            android:id="@+id/button_modi"
             android:layout_weight="1" />
 
         <Button
             android:text="내노래관리" android:drawableTop="@mipmap/ic_launcher"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/button3"
+            android:id="@+id/button_mysong"
             android:layout_weight="1" />
     </LinearLayout>
 </LinearLayout>

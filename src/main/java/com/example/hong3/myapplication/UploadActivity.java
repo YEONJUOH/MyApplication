@@ -64,11 +64,19 @@ public class UploadActivity extends AppCompatActivity {
    int selectedAudio;
    EditText upload_comment;
 
+     String m_id;
+     String s_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.upload_page);
+
+
+        Intent intent = getIntent();
+        m_id = intent.getExtras().getString("m_id");
+        s_id = intent.getExtras().getString("s_id");
+
 
          upload_comment = (EditText)findViewById(R.id.upload_comment);
     /*    cursor = managedQuery(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI ,
@@ -104,7 +112,7 @@ public class UploadActivity extends AppCompatActivity {
                                 TextView output = (TextView) findViewById(R.id.textView10);
                                 output.setText(audioList.get(id).getA_name());
                                 selectedAudio = id;
-                                Toast.makeText(UploadActivity.this,audioList.get(id).getPath() ,Toast.LENGTH_SHORT).show();
+
 
 
                             };
@@ -209,8 +217,8 @@ public class UploadActivity extends AppCompatActivity {
         }
 
         //나중에 변경
-        params.put("m_id","uptest");
-        params.put("s_id",3);
+        params.put("m_id",m_id);
+        params.put("s_id",5);
         //선택된 오디오의 제목
         String a_name = audioList.get(selectedAudio).getA_name();
         params.put("a_name",a_name);
@@ -235,7 +243,7 @@ public class UploadActivity extends AppCompatActivity {
                 }
                 intent.putExtra("a_id",a_id);
                 //나중에 변경
-                intent.putExtra("m_id","uptest");
+                intent.putExtra("m_id",m_id);
                 startActivity(intent);
 
             }

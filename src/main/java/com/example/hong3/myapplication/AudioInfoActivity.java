@@ -13,6 +13,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Layout;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -59,6 +60,7 @@ public class AudioInfoActivity extends AppCompatActivity {
     ImageView imageView;
     TextView m_idView;
     TextView a_commentView;
+    TextView songNm;
 
     RequestParams params_a = new RequestParams();
     RequestParams params_m = new RequestParams();
@@ -82,10 +84,12 @@ public class AudioInfoActivity extends AppCompatActivity {
     int selected_score;
     //layout
     LinearLayout score_layout;
+    LinearLayout replyLinear;
+    LinearLayout audioInfoBody;
 
     Button score_btn;
     TextView score_txt;
-
+    Button remove_btn;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,13 +97,15 @@ public class AudioInfoActivity extends AppCompatActivity {
 
         //추가 될 text
         score_txt = new TextView(this);
+        //추가 될 버튼
+        remove_btn = new Button(this);
 
-       /* Intent intent = getIntent();
+        Intent intent = getIntent();
         a_id = intent.getExtras().getString("a_id");
-        id = intent.getExtras().getString("m_id");*/
+        m_id = intent.getExtras().getString("m_id");
 
-        a_id = "26";
-        m_id = "uptest";
+     /*   a_id = "26";
+        m_id = "uptest";*/
 
         imageView = (ImageView) findViewById(R.id.mPic_audioinfo);
         m_idView = (TextView) findViewById(R.id.m_idVeiw);
@@ -109,6 +115,10 @@ public class AudioInfoActivity extends AppCompatActivity {
         writeRply = (EditText) findViewById(R.id.writeRply);
 
         score_layout= (LinearLayout) findViewById(R.id.score_layout);
+        replyLinear = (LinearLayout) findViewById(R.id.replyLinear);
+        audioInfoBody = (LinearLayout) findViewById(R.id.audioInfoBody);
+
+        songNm = (TextView) findViewById(R.id.songNm);
 
         //정보 가져와서 뿌려주는 부분;
         audioInfo(a_id);
@@ -145,7 +155,7 @@ public class AudioInfoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
+                playAudio();
                 mediaPlayer.start();
 
 
@@ -189,19 +199,27 @@ public class AudioInfoActivity extends AppCompatActivity {
 
 
                 String uploader="" ;
+                String s_id ="";
                 try {
 
                     uploader = object.getString("m_id");
                     memberInfo(uploader);
+                    s_id = object.getString("s_id");
+                    songNm(s_id);
 
                     a_commentView.setText(object.getString("a_comment"));
-                    Uri uri = Uri.parse(MyClient.getBasicUrl()+"/audio/"+a_id+"."+getType(object.getString("a_loc")));
+                    Uri uri = Uri.parse(MyClient.getBasicUrl() + "/audio/" + a_id + "." + getType(object.getString("a_loc")));
 
                     mediaPlayer.setDataSource(String.valueOf(uri));
                     mediaPlayer.prepare();
+                   if(!uploader.equals(m_id)) {
 
-                    makeRplyList();
+                       makeRplyList();
 
+                   }else{
+
+                       IsUploader();
+                   }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
@@ -258,8 +276,6 @@ public class AudioInfoActivity extends AppCompatActivity {
 
          });
 
-
-
      }
 
     //jsonarraytest
@@ -287,6 +303,29 @@ public class AudioInfoActivity extends AppCompatActivity {
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable,JSONObject object) {
                 Toast.makeText(AudioInfoActivity.this,"fail",Toast.LENGTH_SHORT).show();
+
+            }
+
+
+        });
+
+    }
+
+    //playAudio
+    public void playAudio(){
+
+        String url_text = "/audio/play_audio";
+        params_a.put("a_id",a_id);
+        params_a.put("m_id",m_id);
+        MyClient.post(url_text,params_a,new JsonHttpResponseHandler(){
+
+            public void onSuccess(int statusCode, Header[] headers, JSONObject object) {
+
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable,JSONObject object) {
+
 
             }
 
@@ -396,6 +435,67 @@ public class AudioInfoActivity extends AppCompatActivity {
 
     }
 
+
+    //노래 제목
+    public void songNm(String s_id){
+
+        String url_text = "/audio/song";
+       params_a.put("s_id",s_id);
+
+        MyClient.get(url_text,params_a,new JsonHttpResponseHandler(){
+
+            public void onSuccess(int statusCode, Header[] headers, JSONObject jsonObject) {
+
+
+                try {
+                    songNm.setText(jsonObject.getString("s_name"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable,JSONObject object) {
+                Toast.makeText(AudioInfoActivity.this,"fail",Toast.LENGTH_SHORT).show();
+
+            }
+
+
+        });
+
+
+    };
+
+
+
+
+
+    // 삭제
+    public void deleteAudio(){
+
+        String url_text = "/audio/delete_audio";
+        params_a.put("a_id",a_id);
+        MyClient.get(url_text,params_a,new JsonHttpResponseHandler(){
+
+            public void onSuccess(int statusCode, Header[] headers, JSONObject object) {
+                Intent i=new Intent(AudioInfoActivity.this, MainActivity.class);
+                i.putExtra("m_id",m_id);
+                startActivity(i);
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable,JSONObject object) {
+                Toast.makeText(AudioInfoActivity.this,"fail",Toast.LENGTH_SHORT).show();
+
+            }
+
+
+        });
+
+    }
+
     //jsonarray to array
     public void jsontoArr(JSONArray jsonArr) throws JSONException {
 
@@ -416,6 +516,35 @@ public class AudioInfoActivity extends AppCompatActivity {
 
     }
 
+
+    //layout 제거
+    public void IsUploader() {
+
+
+        score_layout.removeAllViews();
+        replyLinear.removeAllViews();
+
+       remove_btn.setText("삭제");
+       remove_btn.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+             deleteAudio();
+
+           }
+       });
+
+        audioInfoBody.addView(remove_btn);
+
+    }
+
+
+
+
+
+
+
+
+
     //img type 알아내는 함수
     public String getType(String img_loc){
 
@@ -435,12 +564,59 @@ public class AudioInfoActivity extends AppCompatActivity {
     }
 
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu,menu);
+        getMenuInflater().inflate(R.menu.menu, menu);
         // return super.onCreateOptionsMenu(menu);
         return true;
     }
+    //http://loveiskey.tistory.com/176
+    //http://dev-daddy.com/8
+    //http://sumi3360.blogspot.kr/2015/07/android-action-item-icon.html
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        String i = item.getTitle().toString();
+        Toast.makeText(AudioInfoActivity.this,"선택"+i+"home"+R.id.home,Toast.LENGTH_SHORT).show();
+       if(i.equals("HOME")){
+           tohome();
+           return true;
+       }else if(i.equals("MY")){
+           mypaging();
+       }else if(i.equals("LOGOUT")){
+           logout();
+       }
+
+        return false;
+    }
+
+    public void mypaging() {
+
+        Intent intent = new Intent(AudioInfoActivity.this, MyInfoActivity.class);
+        m_id = m_id;
+
+        intent.putExtra("m_id", m_id);
+
+        startActivity(intent);
+    }
+
+    public void tohome() {
+
+        Intent intent = new Intent(AudioInfoActivity.this, MainActivity.class);
+        m_id = m_id;
+
+        intent.putExtra("m_id", m_id);
+
+        startActivity(intent);
+    }
+
+    public void logout() {
+
+        Intent intent = new Intent(AudioInfoActivity.this, LoginActivity.class);
+        startActivity(intent);
+    }
+
 
 }
 
